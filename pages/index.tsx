@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
         {/* Projects */}
 
-        {/* Experiences & Skills */}
+        {/* Experiences */}
 
         {/* Contact */}
 
