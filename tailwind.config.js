@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         IBM: ["IBM Plex Sans", "sans-serif"],
       },
+      colors: {
+        "primary-color": "var(--primary-color)",
+      },
     },
   },
   plugins: [],
