@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
 
 const Home: NextPage = () => {
   return (
-    <div className="text-IBM mx-auto max-w-[80] bg-primary-color text-gray-700">
+    <div className="text-IBM mx-auto text-gray-600 w-8/12">
       <Head>
         <title>Chaikit Ruangsakulpat</title>
       </Head>
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
         <Header />
 
         {/* Hero */}
+        <Hero />
 
         {/* About */}
 

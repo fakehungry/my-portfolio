@@ -7,3 +7,7 @@
 :root {
   --primary-color: #f7ffdd;
 }
+
+body {
+  background-color: var(--primary-color);
+}

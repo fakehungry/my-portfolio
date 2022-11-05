@@ -29,7 +29,7 @@ const Header = (props: Props) => {
         <div className="flex items-center">
           <BsMoon size={24} className="cursor-pointer" />
           <BsSun size={24} className="hidden cursor-pointer" />
-          <button className="bg-gray-700 text-white rounded-lg px-2 py-1 text-primary-color ml-3">
+          <button className="bg-gray-600 text-white rounded-lg px-2 py-1 text-primary-color ml-3">
             Resume
           </button>
         </div>
