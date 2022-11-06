@@ -5,7 +5,7 @@ import Hero from "../components/Hero";
 
 const Home: NextPage = () => {
   return (
-    <div className="text-IBM mx-auto text-gray-600 w-8/12">
+    <div className="text-IBM mx-auto text-gray-600 max-w-7xl h-screen snap-y snap-mandatory">
       <Head>
         <title>Chaikit Ruangsakulpat</title>
       </Head>

@@ -7,8 +7,8 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div>
-      <header className="flex justify-between py-5 text-l px-8 items-center sticky top-0 z-50">
+    <div className="sticky top-0">
+      <header className="flex justify-between py-5 text-l px-8">
         <Image src="" alt="logo" className="cursor-pointer" />
         <nav className="rounded-lg shadow-md px-4 py-1 bg-[#ecf7c6]">
           <ul className="flex space-x-6 font-medium">

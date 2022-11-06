@@ -5,10 +5,21 @@ type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <section id="hero" className="h-screen container mt-10">
-      <div className="flex justify-center space-x-10">
-        <Image src="" alt="chaikit's picture" />
-        <h1 className="text-4xl font-bold text-gray-700 uppercase">
+    <section
+      id="hero"
+      className="flex flex-col items-center justify-center h-screen snap-center"
+    >
+      <div className="flex justify-center items-center space-x-10">
+        <div className="w-80">
+          <Image
+            className="rounded-full h-80 w-80"
+            src="/assets/chaikit-picture.jpg"
+            alt="chaikit's picture"
+            width={500}
+            height={500}
+          />
+        </div>
+        <h1 className="text-4xl font-bold text-gray-700 uppercase w-60">
           <span className="text-6xl text-gray-800">Chaikit</span> Ruangsakulpat
         </h1>
       </div>
