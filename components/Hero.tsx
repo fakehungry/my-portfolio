@@ -20,7 +20,8 @@ const Hero = (props: Props) => {
           />
         </div>
         <h1 className="text-4xl font-bold text-gray-700 uppercase w-60">
-          <span className="text-6xl text-gray-800">Chaikit</span> Ruangsakulpat
+          <span className="text-6xl text-secondary-color">Chaikit</span>{" "}
+          Ruangsakulpat
         </h1>
       </div>
       <div className="flex flex-col text-center mt-5">
