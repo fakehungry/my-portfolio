@@ -7,37 +7,35 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="sticky top-0">
-      <header className="flex justify-between py-5 text-l px-8">
-        <Image src="" alt="logo" className="cursor-pointer" />
-        <nav className="rounded-lg shadow-md px-4 py-1 bg-[#ecf7c6]">
-          <ul className="flex space-x-6 font-medium">
-            <li>
-              <Link href="#about">About</Link>
-            </li>
-            <li>
-              <Link href="#projects">Projects</Link>
-            </li>
-            <li>
-              <Link href="#experiences">Experiences</Link>
-            </li>
-            <li>
-              <Link href="#contact">Contact</Link>
-            </li>
-            <li>
-              <Link href="/blog">Blog</Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="flex items-center">
-          <BsMoon size={24} className="cursor-pointer" />
-          <BsSun size={24} className="hidden cursor-pointer" />
-          <button className="bg-gray-600 text-white rounded-lg px-2 py-1 text-primary-color ml-3">
-            Resume
-          </button>
-        </div>
-      </header>
-    </div>
+    <header className="sticky top-0 flex justify-between py-5 text-l px-8 max-w-7xl mx-auto">
+      <Image src="" alt="logo" className="cursor-pointer" />
+      <nav className="rounded-lg shadow-md px-4 py-1 bg-[#ecf7c6]">
+        <ul className="flex space-x-6 font-medium">
+          <li>
+            <Link href="#about">About</Link>
+          </li>
+          <li>
+            <Link href="#projects">Projects</Link>
+          </li>
+          <li>
+            <Link href="#experiences">Experiences</Link>
+          </li>
+          <li>
+            <Link href="#contact">Contact</Link>
+          </li>
+          <li>
+            <Link href="/blog">Blog</Link>
+          </li>
+        </ul>
+      </nav>
+      <div className="flex items-center">
+        <BsMoon size={24} className="cursor-pointer" />
+        <BsSun size={24} className="hidden cursor-pointer" />
+        <button className="bg-gray-600 text-white rounded-lg px-2 py-1 text-primary-color ml-3">
+          Resume
+        </button>
+      </div>
+    </header>
   );
 };
 

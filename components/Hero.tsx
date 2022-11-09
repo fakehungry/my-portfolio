@@ -7,7 +7,7 @@ const Hero = (props: Props) => {
   return (
     <section
       id="hero"
-      className="flex flex-col items-center justify-center h-screen snap-center"
+      className="flex flex-col items-center justify-center h-screen max-w-7xl mx-auto"
     >
       <div className="flex justify-center items-center space-x-10">
         <div className="w-80">

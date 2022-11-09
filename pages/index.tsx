@@ -7,12 +7,12 @@ import Projects from "../components/Projects";
 
 const Home: NextPage = () => {
   return (
-    <div className="text-IBM mx-auto text-gray-600 max-w-7xl h-screen snap-y snap-mandatory">
+    <>
       <Head>
         <title>Chaikit Ruangsakulpat</title>
       </Head>
 
-      <main>
+      <main className="font-IBM text-gray-600">
         {/* Header */}
         <Header />
 
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 
         {/* Footer */}
       </main>
-    </div>
+    </>
   );
 };
 
