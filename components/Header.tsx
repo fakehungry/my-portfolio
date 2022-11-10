@@ -7,7 +7,7 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <header className="sticky top-0 flex justify-between py-5 text-l px-8 max-w-7xl mx-auto">
+    <header className="sticky top-0 flex justify-between py-5 text-l px-8 bg-primary-color opacity-90 mx-auto z-50">
       <Image src="" alt="logo" className="cursor-pointer" />
       <nav className="rounded-lg shadow-md px-4 py-1 bg-[#ecf7c6]">
         <ul className="flex space-x-6 font-medium">

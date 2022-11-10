@@ -15,7 +15,7 @@ type Props = {};
 
 const About = (props: Props) => {
   return (
-    <section id="about" className="flex flex-col mb-40 max-w-7xl mx-auto">
+    <section id="about" className="mb-40 max-w-7xl mx-auto">
       <h2 className="text-2xl font-semibold text-center">
         Something you should know about{" "}
         <span className="text-secondary-color font-bold">Chaikit</span>
