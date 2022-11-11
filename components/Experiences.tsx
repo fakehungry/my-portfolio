@@ -10,17 +10,17 @@ const Experiences = (props: Props) => {
       </h2>
       <div className="flex px-20 text-left space-x-6">
         <div className="flex flex-col text-left">
-          <button className="text-md border-2 border-y-primary-color border-l-slate-300 border-r-primary-color px-3 py-2 hover:bg-[#f2fcd2] hover:text-secondary-color active:border-l-secondary-color">
+          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-[#f2fcd2] hover:text-secondary-color active:border-l-secondary-color">
             PTTEP Services
           </button>
-          <button className="text-md border-2 border-y-primary-color border-l-slate-300 border-r-primary-color px-3 py-2 hover:bg-[#f2fcd2] hover:text-secondary-color active:border-l-secondary-color">
+          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-[#f2fcd2] hover:text-secondary-color active:border-l-secondary-color">
             Centrovision
           </button>
         </div>
-        <div>
-          <div className="text-left text-md">
+        <div className="text-left text-md">
+          <div>
             <h3 className="text-lg font-semibold">
-              Supervisor{" "}
+              Supervisor
               <span className="text-secondary-color font-bold">
                 @PTTEP Services
               </span>
@@ -47,6 +47,29 @@ const Experiences = (props: Props) => {
               </li>
               <li className="before:content-['▹'] before:text-secondary-color">
                 Enquire for quotations to purchase any required equipment.
+              </li>
+            </ul>
+          </div>
+          <div className="hidden">
+            <h3 className="text-lg font-semibold">
+              Technical Engineer
+              <span className="text-secondary-color font-bold">
+                @Centrovision
+              </span>
+            </h3>
+            <p>Apr 2012 - Jan 2013</p>
+            <ul>
+              <li className="before:content-['▹'] before:text-secondary-color">
+                Contact to customer to get the requirement and complete the job.
+              </li>
+              <li className="before:content-['▹'] before:text-secondary-color">
+                Plan flight time, coverage area, and set air plane’s parameters.
+              </li>
+              <li className="before:content-['▹'] before:text-secondary-color">
+                Process acquired data to an aerial map.
+              </li>
+              <li className="before:content-['▹'] before:text-secondary-color">
+                Develop solution that meet the customer’s requirement.
               </li>
             </ul>
           </div>
