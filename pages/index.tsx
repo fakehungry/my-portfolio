@@ -6,6 +6,7 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Experiences from "../components/Experiences";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
         <title>Chaikit Ruangsakulpat</title>
       </Head>
 
-      <main className="font-IBM text-gray-600">
+      <main className="font-primary text-gray-600">
         {/* Header */}
         <Header />
 
@@ -32,9 +33,10 @@ const Home: NextPage = () => {
 
         {/* Contact */}
         <Contact />
-
-        {/* Footer */}
       </main>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 };

@@ -23,7 +23,7 @@ const Projects = (props: Props) => {
                   className="rounded-lg"
                 />
               </div>
-              <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-white to-[#ecf7c6] opacity-0 hover:opacity-[85%] duration-300">
+              <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-white to-dark-primary-color opacity-0 hover:opacity-[85%] duration-300">
                 <div>
                   <h3 className="text-center text-lg font-semibold">
                     Lorem ipsum dolor sit amet.

@@ -7,10 +7,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        IBM: ["IBM Plex Sans", "sans-serif"],
+        primary: ["Lato", "sans-serif"],
       },
       colors: {
         "primary-color": "var(--primary-color)",
+        "dark-primary-color": "var(--dark-primary-color)",
         "secondary-color": "var(--secondary-color)",
       },
     },

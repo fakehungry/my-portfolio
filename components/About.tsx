@@ -9,6 +9,7 @@ import {
   SiR,
   SiMicrosoftoffice,
   SiFigma,
+  SiSqlite,
 } from "react-icons/si";
 
 type Props = {};
@@ -54,6 +55,7 @@ const About = (props: Props) => {
             <SiR size={30} className="" />
             <SiMicrosoftoffice size={30} className="" />
             <SiFigma size={30} className="" />
+            <SiSqlite size={30} className="" />
           </div>
         </div>
         <div>

@@ -1,12 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary-color: #f7ffdd;
-  --secondary-color: #469a49;
+  --primary-color: #e7f6f2;
+  --dark-primary-color: #e3faf4;
+  --secondary-color: #44bffc;
 }
 
 body {

@@ -10,10 +10,10 @@ const Experiences = (props: Props) => {
       </h2>
       <div className="flex px-20 text-left space-x-6">
         <div className="flex flex-col text-left">
-          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-[#f2fcd2] hover:text-secondary-color active:border-l-secondary-color">
+          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-dark-primary-color hover:text-secondary-color active:border-l-secondary-color">
             PTTEP Services
           </button>
-          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-[#f2fcd2] hover:text-secondary-color active:border-l-secondary-color">
+          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-dark-primary-color hover:text-secondary-color active:border-l-secondary-color">
             Centrovision
           </button>
         </div>
