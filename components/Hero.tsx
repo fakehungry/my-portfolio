@@ -1,30 +1,26 @@
 import React from "react";
 import Image from "next/image";
+import me from "../public/assets/chaikit-avatar.png";
+import RippleStroked from "./RippleStroked";
 
 type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <section
-      id="hero"
-      className="flex flex-col items-center justify-center h-screen max-w-7xl mx-auto"
-    >
+    <>
       <div className="flex justify-center items-center space-x-10">
-        <div className="w-80">
-          <Image
-            className="rounded-full h-80 w-80"
-            src="/assets/chaikit-picture.jpg"
-            alt="chaikit's picture"
-            width={500}
-            height={500}
-          />
+        <div className="relative w-80 h-80">
+          <div className="w-full h-full bg-gradient-to-br from-secondary-color to-slate-100 rounded-full overflow-hidden relative z-20">
+            <Image className="" src={me} alt="chaikit's avatar" />
+          </div>
+          <RippleStroked />
         </div>
-        <h1 className="text-4xl font-bold text-gray-700 uppercase w-60">
+        <h1 className="text-4xl font-bold uppercase w-60 relative z-20">
           <span className="text-6xl text-secondary-color">Chaikit</span>{" "}
           Ruangsakulpat
         </h1>
       </div>
-      <div className="flex flex-col text-center mt-5">
+      <div className="flex flex-col text-center mt-5 relative z-20">
         <h2 className="text-2xl font-semibold">Web Developer & Data Analyst</h2>
         <p className="text-xl mt-4">
           I'm a web developer & data analyst lives in Bangkok, Thailand. I turn
@@ -32,7 +28,7 @@ const Hero = (props: Props) => {
           something special to build or your project is in rush hours.
         </p>
       </div>
-    </section>
+    </>
   );
 };
 

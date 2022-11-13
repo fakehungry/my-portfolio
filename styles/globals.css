@@ -5,11 +5,13 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #e7f6f2;
-  --dark-primary-color: #e3faf4;
-  --secondary-color: #44bffc;
+  --primary-color: #feffff;
+  --primary-color-darker: #def2f1;
+  --secondary-color: #3aafa9;
+  --dark-primary-color: #17252a;
+  --dark-secondary-color: #2b7a78;
 }
 
-body {
-  background-color: var(--primary-color);
+html {
+  scroll-snap-type: y mandatory;
 }

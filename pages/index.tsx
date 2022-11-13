@@ -15,24 +15,35 @@ const Home: NextPage = () => {
         <title>Chaikit Ruangsakulpat</title>
       </Head>
 
-      <main className="font-primary text-gray-600">
+      <main className="font-primary text-dark-primary-color bg-primary-color">
         {/* Header */}
         <Header />
 
-        {/* Hero */}
-        <Hero />
+        <section
+          id="hero"
+          className="flex flex-col items-center justify-center h-screen max-w-7xl mx-auto snap-start"
+        >
+          <Hero />
+        </section>
 
-        {/* About */}
-        <About />
+        <section id="about" className="mb-40 max-w-7xl mx-auto snap-center">
+          <About />
+        </section>
 
-        {/* Projects */}
-        <Projects />
+        <section id="projects" className="flex flex-col mb-40 snap-center">
+          <Projects />
+        </section>
 
-        {/* Experiences */}
-        <Experiences />
+        <section
+          id="experiences"
+          className="mb-40 max-w-7xl mx-auto snap-center"
+        >
+          <Experiences />
+        </section>
 
-        {/* Contact */}
-        <Contact />
+        <section id="contact" className="mb-40 max-w-7xl mx-auto snap-center">
+          <Contact />
+        </section>
       </main>
 
       {/* Footer */}

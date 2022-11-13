@@ -11,8 +11,10 @@ module.exports = {
       },
       colors: {
         "primary-color": "var(--primary-color)",
-        "dark-primary-color": "var(--dark-primary-color)",
+        "primary-color-darker": "var(--primary-color-darker)",
         "secondary-color": "var(--secondary-color)",
+        "dark-primary-color": "var(--dark-primary-color)",
+        "dark-secondary-color": "var(--dark-secondary-color)",
       },
     },
   },

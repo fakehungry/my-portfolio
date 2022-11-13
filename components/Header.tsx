@@ -2,14 +2,33 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsMoon, BsSun } from "react-icons/bs";
+import me from "../public/assets/chaikit-avatar.png";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <header className="sticky top-0 flex justify-between py-5 text-l px-8 bg-primary-color opacity-90 mx-auto z-50">
-      <Image src="" alt="logo" className="cursor-pointer" />
-      <nav className="rounded-lg shadow-md px-4 py-1 bg-dark-primary-color">
+    <motion.header
+      className="sticky top-0 flex justify-between py-5 text-l px-8 bg-primary-color opacity-90 mx-auto z-50"
+      initial={{
+        y: -100,
+        opacity: 0,
+        scale: 0.5,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        scale: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+    >
+      <div className="w-[30px] h-[30px]">
+        <Image src={me} alt="logo" className="cursor-pointer" />
+      </div>
+      <nav className="rounded-lg shadow-md px-4 py-1 bg-primary-color-darker">
         <ul className="flex space-x-6 font-medium">
           <li>
             <Link href="#about">About</Link>
@@ -31,11 +50,11 @@ const Header = (props: Props) => {
       <div className="flex items-center">
         <BsMoon size={24} className="cursor-pointer" />
         <BsSun size={24} className="hidden cursor-pointer" />
-        <button className="bg-gray-600 text-white rounded-lg px-2 py-1 text-primary-color ml-3">
+        <button className="bg-secondary-color text-primary-color rounded-lg px-2 py-1 ml-3">
           Resume
         </button>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

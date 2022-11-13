@@ -4,16 +4,16 @@ type Props = {};
 
 const Experiences = (props: Props) => {
   return (
-    <section id="experiences" className="mb-40 max-w-7xl mx-auto">
+    <>
       <h2 className="text-2xl font-semibold text-center mb-5">
         Where I've experienced
       </h2>
       <div className="flex px-20 text-left space-x-6">
         <div className="flex flex-col text-left">
-          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-dark-primary-color hover:text-secondary-color active:border-l-secondary-color">
+          <button className="text-md border-l-2 border-primary-color-darker px-3 py-2 hover:bg-primary-color-darker hover:text-secondary-color active:border-l-dark-secondary-color">
             PTTEP Services
           </button>
-          <button className="text-md border-l-2 border-slate-300 px-3 py-2 hover:bg-dark-primary-color hover:text-secondary-color active:border-l-secondary-color">
+          <button className="text-md border-l-2 border-primary-color-darker px-3 py-2 hover:bg-primary-color-darker hover:text-secondary-color active:border-l-dark-secondary-color">
             Centrovision
           </button>
         </div>
@@ -75,7 +75,7 @@ const Experiences = (props: Props) => {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

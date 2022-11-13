@@ -16,7 +16,7 @@ type Props = {};
 
 const About = (props: Props) => {
   return (
-    <section id="about" className="mb-40 max-w-7xl mx-auto">
+    <>
       <h2 className="text-2xl font-semibold text-center">
         Something you should know about{" "}
         <span className="text-secondary-color font-bold">Chaikit</span>
@@ -59,10 +59,10 @@ const About = (props: Props) => {
           </div>
         </div>
         <div>
-          <Image src={chaikitPic} />
+          <Image src={chaikitPic} className="rounded-lg" />
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
