@@ -26,7 +26,10 @@ const Home: NextPage = () => {
           <Hero />
         </section>
 
-        <section id="about" className="mb-40 max-w-7xl mx-auto snap-center">
+        <section
+          id="about"
+          className="mb-40 max-w-7xl mx-auto snap-center flex flex-col justify-center items-center"
+        >
           <About />
         </section>
 
@@ -36,7 +39,7 @@ const Home: NextPage = () => {
 
         <section
           id="experiences"
-          className="mb-40 max-w-7xl mx-auto snap-center"
+          className="flex flex-col justify-center items-center mb-40 max-w-7xl mx-auto snap-center"
         >
           <Experiences />
         </section>

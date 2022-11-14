@@ -15,12 +15,12 @@ const Footer = (props: Props) => {
   return (
     <footer
       id="footer"
-      className="font-primary text-dark-primary-color max-w-7xl mx-auto text-center flex justify-center mb-6 bg-primary-color"
+      className="font-primary text-dark-primary-color max-w-7xl mx-auto text-center flex flex-col justify-center items-center mb-2 bg-primary-color md:flex-row"
     >
-      <p className="text-md font-semibold mr-4 border-r-2 border-dark-secondary-color pr-3">
+      <p className="text-sm font-semibold md:mr-4 md:border-r-2 md:border-dark-secondary-color md:pr-3">
         Chaikit Ruang &copy; 2022
       </p>
-      <div className="space-x-4 flex">
+      <div className="space-x-4 flex justify-center items-center pb-1 mt-2 text-dark-primary-color">
         <Link href="#">
           <SiGithub size={24} />
         </Link>

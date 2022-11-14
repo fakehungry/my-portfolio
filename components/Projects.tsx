@@ -8,7 +8,7 @@ type Props = {};
 const Projects = (props: Props) => {
   return (
     <>
-      <h2 className="text-2xl font-semibold text-center mb-5">
+      <h2 className="text-xl font-semibold text-center mb-5">
         Sample of my creativities
       </h2>
       <div className="overflow-x-auto h-[21.1rem] flex gap-16 snap-mandatory snap-x">
@@ -18,7 +18,7 @@ const Projects = (props: Props) => {
           </div>
           <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-primary-color to-primary-color-darker opacity-0 hover:opacity-[85%] duration-300">
             <div>
-              <h3 className="text-center text-lg font-semibold">
+              <h3 className="text-center text-md font-semibold">
                 Lorem ipsum dolor sit amet.
               </h3>
               <p>
@@ -40,7 +40,7 @@ const Projects = (props: Props) => {
           </div>
           <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-primary-color to-primary-color-darker opacity-0 hover:opacity-[85%] duration-300">
             <div>
-              <h3 className="text-center text-lg font-semibold">
+              <h3 className="text-center text-md font-semibold">
                 Lorem ipsum dolor sit amet.
               </h3>
               <p>
@@ -62,7 +62,7 @@ const Projects = (props: Props) => {
           </div>
           <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-primary-color to-primary-color-darker opacity-0 hover:opacity-[85%] duration-300">
             <div>
-              <h3 className="text-center text-lg font-semibold">
+              <h3 className="text-center text-md font-semibold">
                 Lorem ipsum dolor sit amet.
               </h3>
               <p>
@@ -84,7 +84,7 @@ const Projects = (props: Props) => {
           </div>
           <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-primary-color to-primary-color-darker opacity-0 hover:opacity-[85%] duration-300">
             <div>
-              <h3 className="text-center text-lg font-semibold">
+              <h3 className="text-center text-md font-semibold">
                 Lorem ipsum dolor sit amet.
               </h3>
               <p>
@@ -106,7 +106,7 @@ const Projects = (props: Props) => {
           </div>
           <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-primary-color to-primary-color-darker opacity-0 hover:opacity-[85%] duration-300">
             <div>
-              <h3 className="text-center text-lg font-semibold">
+              <h3 className="text-center text-md font-semibold">
                 Lorem ipsum dolor sit amet.
               </h3>
               <p>
@@ -128,7 +128,7 @@ const Projects = (props: Props) => {
           </div>
           <div className="w-120 absolute top-0 left-0 h-full flex flex-col justify-between p-5 bg-gradient-to-r from-primary-color to-primary-color-darker opacity-0 hover:opacity-[85%] duration-300">
             <div>
-              <h3 className="text-center text-lg font-semibold">
+              <h3 className="text-center text-md font-semibold">
                 Lorem ipsum dolor sit amet.
               </h3>
               <p>
