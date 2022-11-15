@@ -3,20 +3,27 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 type Props = {
-  isOpen: boolean;
-  setOpen: Function;
+  hamburgerOpen: boolean;
+  darkToggle: boolean;
+  setHamburgerOpen: Function;
 };
 
-const HamburgerMenu = ({ isOpen, setOpen }: Props) => {
+const HamburgerMenu = ({
+  hamburgerOpen,
+  setHamburgerOpen,
+  darkToggle,
+}: Props) => {
   const variants = {
-    open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "100%" },
+    open: { opacity: 1, x: 0, y: 0 },
+    closed: { opacity: 0, x: "100%", y: "-100%" },
   };
 
   return (
     <motion.div
-      className="w-full h-full bg-primary-color-darker text-dark-primary-color fixed top-0 right-0 z-30"
-      animate={isOpen ? "open" : "closed"}
+      className={`w-full h-full fixed top-0 right-0 z-30 ${
+        darkToggle ? "light-darker" : "dark-darker"
+      }`}
+      animate={hamburgerOpen ? "open" : "closed"}
       variants={variants}
     >
       <nav className="text-center text-2xl h-full">
@@ -24,7 +31,7 @@ const HamburgerMenu = ({ isOpen, setOpen }: Props) => {
           <Link
             href="#about"
             onClick={() => {
-              setOpen();
+              setHamburgerOpen();
             }}
           >
             About
@@ -32,7 +39,7 @@ const HamburgerMenu = ({ isOpen, setOpen }: Props) => {
           <Link
             href="#projects"
             onClick={() => {
-              setOpen();
+              setHamburgerOpen();
             }}
           >
             Projects
@@ -40,7 +47,7 @@ const HamburgerMenu = ({ isOpen, setOpen }: Props) => {
           <Link
             href="#experiences"
             onClick={() => {
-              setOpen();
+              setHamburgerOpen();
             }}
           >
             Experiences
@@ -48,7 +55,7 @@ const HamburgerMenu = ({ isOpen, setOpen }: Props) => {
           <Link
             href="#contact"
             onClick={() => {
-              setOpen();
+              setHamburgerOpen();
             }}
           >
             Contact
@@ -56,15 +63,17 @@ const HamburgerMenu = ({ isOpen, setOpen }: Props) => {
           <Link
             href="/blog"
             onClick={() => {
-              setOpen();
+              setHamburgerOpen();
             }}
           >
             Blog
           </Link>
           <button
-            className="bg-secondary-color text-primary-color rounded-lg py-1 mx-10"
+            className={`rounded-lg py-1 mx-10 ${
+              darkToggle ? "btn-light" : "btn-dark"
+            }`}
             onClick={() => {
-              setOpen();
+              setHamburgerOpen();
             }}
           >
             Resume

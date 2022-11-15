@@ -9,18 +9,24 @@ import {
   SiLine,
 } from "react-icons/si";
 
-type Props = {};
+type Props = { darkToggle: boolean };
 
-const Footer = (props: Props) => {
+const Footer = ({ darkToggle }: Props) => {
   return (
     <footer
       id="footer"
-      className="font-primary text-dark-primary-color max-w-7xl mx-auto text-center flex flex-col justify-center items-center mb-2 bg-primary-color md:flex-row"
+      className={`font-primary mx-auto text-center flex flex-col justify-center items-center pb-2 md:flex-row ${
+        darkToggle ? "light" : "dark"
+      }`}
     >
       <p className="text-sm font-semibold md:mr-4 md:border-r-2 md:border-dark-secondary-color md:pr-3">
         Chaikit Ruang &copy; 2022
       </p>
-      <div className="space-x-4 flex justify-center items-center pb-1 mt-2 text-dark-primary-color">
+      <div
+        className={`space-x-4 flex justify-center items-center pb-1 mt-2 ${
+          darkToggle ? "light" : "dark"
+        }`}
+      >
         <Link href="#">
           <SiGithub size={24} />
         </Link>

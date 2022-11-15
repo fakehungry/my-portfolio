@@ -14,9 +14,10 @@ module.exports = {
         "primary-color-darker": "var(--primary-color-darker)",
         "secondary-color": "var(--secondary-color)",
         "dark-primary-color": "var(--dark-primary-color)",
+        "dark-primary-color-darker": "var(--dark-primary-color-darker)",
         "dark-secondary-color": "var(--dark-secondary-color)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
