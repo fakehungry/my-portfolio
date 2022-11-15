@@ -11,7 +11,7 @@ const Projects = ({ darkToggle }: Props) => {
       <h2 className="text-xl font-semibold text-center mb-5">
         Sample of my creativities
       </h2>
-      <div className="relative z-10 overflow-x-auto h-[21.1rem] flex gap-16 snap-mandatory snap-x scrollbar scrollbar-thin scrollbar-track-primary-color-darker scrollbar-thumb-secondary-color">
+      <div className="relative z-10 overflow-x-auto h-[21.1rem] flex gap-16 snap-mandatory snap-x scrollbar-thin scrollbar-track-primary-color-darker scrollbar-thumb-secondary-color">
         <div className="flex w-80 gap-3 justify-centers rounded-lg shadow-lg translate-x-[55%] snap-center md:h-80 md:w-[30rem]">
           <div className="w-80 relative cursor-pointer md:h-80 md:w-[30rem]">
             <Image src={sample} fill objectFit="cover" className="rounded-lg" />
