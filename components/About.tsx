@@ -21,7 +21,7 @@ const About = (props: Props) => {
         Something you should know about{" "}
         <span className="text-secondary-color font-bold">Chaikit</span>
       </h2>
-      <div className="flex flex-col-reverse justify-center items-center mt-3 px-20 text-left md:space-x-6 md:flex-row ">
+      <div className="flex flex-col-reverse justify-center items-center px-4 mt-3 text-left md:space-x-6 md:px-20 md:flex-row ">
         <div className="flex flex-col justify-between md:h-[468px] md:w-[60%]">
           <div>
             <p className="text-base">

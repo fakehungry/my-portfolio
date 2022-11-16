@@ -22,7 +22,7 @@ const Home: NextPage = () => {
   }, [hamburgerOpen]);
 
   return (
-    <div className="h-screen scrollbar scrollbar-thumb-secondary-color scrollbar-track-primary-color-darker">
+    <div className="">
       <Head>
         <title>Chaikit Ruangsakulpat</title>
       </Head>
@@ -38,30 +38,30 @@ const Home: NextPage = () => {
 
         <section
           id="hero"
-          className="flex flex-col items-center justify-center h-screen max-w-7xl mx-auto snap-start"
+          className="flex flex-col items-center justify-center h-screen max-w-7xl mx-auto"
         >
           <Hero />
         </section>
 
         <section
           id="about"
-          className="mb-40 max-w-7xl mx-auto snap-start flex flex-col justify-center items-center"
+          className="mb-40 max-w-7xl mx-auto flex flex-col justify-center items-center"
         >
           <About />
         </section>
 
-        <section id="projects" className="flex flex-col mb-40 snap-start">
+        <section id="projects" className="flex flex-col mb-40">
           <Projects darkToggle={darkToggle} />
         </section>
 
         <section
           id="experiences"
-          className="flex flex-col justify-center items-center mb-40 max-w-7xl mx-auto snap-start"
+          className="flex flex-col justify-center items-center mb-40 max-w-7xl mx-auto"
         >
           <Experiences />
         </section>
 
-        <section id="contact" className="pb-40 max-w-7xl mx-auto snap-start">
+        <section id="contact" className="pb-40 max-w-7xl mx-auto">
           <Contact />
         </section>
       </main>

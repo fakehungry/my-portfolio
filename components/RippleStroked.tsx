@@ -22,7 +22,10 @@ export default function RippleStroked({ size, speed, delay, stroke, color }) {
     boxShadow: [`0 0 0 ${stroke * 2}px ${color}`, `0 0 0 ${stroke}px ${color}`],
   };
   return (
-    <div style={parent}>
+    <div
+      style={parent}
+      className="w-full h-full overflow-x-clip md:overflow-x-visible"
+    >
       <motion.div
         style={{
           ...ripple,

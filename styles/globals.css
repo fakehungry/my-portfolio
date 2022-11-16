@@ -13,10 +13,6 @@
   --dark-secondary-color: #2b7a78;
 }
 
-html {
-  scroll-snap-type: y mandatory;
-}
-
 .light {
   background-color: var(--primary-color);
   color: var(--dark-primary-color);

@@ -50,7 +50,7 @@ const Header = ({
 
   return (
     <motion.header
-      className={`sticky flex top-0 justify-between py-2 text-base opacity-90 z-40 mx-auto px-5 transition-all duration-500 ${
+      className={`sticky h-full flex top-0 justify-between py-2 text-base opacity-90 z-40 mx-auto px-5 transition-all duration-300 ${
         isScrollingDown === "down" ? "-top-24" : "top-0"
       } ${darkToggle ? "light" : "dark"}`}
       initial={{
