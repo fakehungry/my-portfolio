@@ -11,6 +11,7 @@ import {
   SiFigma,
   SiSqlite,
 } from "react-icons/si";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -23,7 +24,12 @@ const About = (props: Props) => {
       </h2>
       <div className="flex flex-col-reverse justify-center items-center px-4 mt-3 text-left md:space-x-6 md:px-20 md:flex-row ">
         <div className="flex flex-col justify-between md:h-[468px] md:w-[60%]">
-          <div>
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1.2 }}
+            viewport={{ once: true }}
+          >
             <p className="text-base">
               Hi! My name is Chaikit Ruangsakulpat. I started my journey in web
               development in 2019 by self-learning. It's an interesting job
@@ -45,22 +51,79 @@ const About = (props: Props) => {
               complete within this year (2022)😁😁.
             </p>
             <p className="text-base my-4">
-              Here are tools I've been working with: (Mouse on icons to find
-              more interesting features)
+              Here are tools I've been working with:
             </p>
-          </div>
-          <div className="flex space-x-4 justify-center">
-            <SiHtml5 size={30} className="" />
-            <SiCss3 size={30} className="" />
-            <SiJavascript size={30} className="" />
-            <SiPython size={30} className="" />
-            <SiR size={30} className="" />
-            <SiMicrosoftoffice size={30} className="" />
-            <SiFigma size={30} className="" />
-            <SiSqlite size={30} className="" />
-          </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ y: [-100, 0, -50, 0, -25, 0], opacity: 1 }}
+            transition={{
+              y: { duration: 1.5, ease: "easeOut" },
+              duration: 1.5,
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+            }}
+            viewport={{ once: true }}
+            className="flex space-x-4 justify-center"
+          >
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiHtml5 className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiCss3 className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiJavascript className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiPython className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiR className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiMicrosoftoffice className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiFigma className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+            <div className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]">
+              <SiSqlite className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]" />
+              <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
+                100%
+              </div>
+            </div>
+          </motion.div>
         </div>
-        <div className="md:h-[468px]">
+        <motion.div
+          initial={{ x: 200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          className="md:h-[468px]"
+        >
           <Image
             src={chaikitPic}
             width={chaikitPic.width}
@@ -68,7 +131,7 @@ const About = (props: Props) => {
             className="w-[240px] h-[240px] rounded-full md:h-full md:w-full md:rounded-lg"
             layout="fill"
           />
-        </div>
+        </motion.div>
       </div>
     </>
   );

@@ -67,49 +67,40 @@ const Header = ({
         duration: 1,
       }}
     >
-      <div className="w-[36px] h-[36px] relative">
-        <Image src={me} alt="logo" className="cursor-pointer" />
-      </div>
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="w-[36px] h-[36px] relative"
+      >
+        <Link href="/">
+          <Image src={me} alt="logo" />
+        </Link>
+      </motion.div>
       <nav
         className={`h-[32px] rounded-lg shadow-md px-4 py-1 hidden md:flex ${
           darkToggle ? "light-darker" : "dark-darker dark:shadow-slate-600"
         }`}
       >
         <ul className="flex space-x-6 font-medium">
-          <li>
+          <li className="hover:text-secondary-color hover:font-bold">
             <Link href="#about">About</Link>
           </li>
-          <li>
+          <li className="hover:text-secondary-color hover:font-bold">
             <Link href="#projects">Projects</Link>
           </li>
-          <li>
+          <li className="hover:text-secondary-color hover:font-bold">
             <Link href="#experiences">Experiences</Link>
           </li>
-          <li>
+          <li className="hover:text-secondary-color hover:font-bold">
             <Link href="#contact">Contact</Link>
           </li>
-          <li>
+          <li className="hover:text-secondary-color hover:font-bold">
             <Link href="/blog">Blog</Link>
           </li>
         </ul>
       </nav>
       <div className={`items-center hidden md:flex`}>
-        <BsMoon
-          size={24}
-          className={`hidden cursor-pointer ${darkToggle && "dark:block"}`}
-          onClick={() => setDark(!darkToggle)}
-        />
-        <BsSun
-          size={24}
-          className={`cursor-pointer ${darkToggle && "dark:hidden"}`}
-          onClick={() => setDark(!darkToggle)}
-        />
-        <button className="bg-secondary-color text-primary-color rounded-lg px-2 py-1 ml-3">
-          Resume
-        </button>
-      </div>
-      <div className="relative items-center z-40 md:hidden">
-        <div className="relative z-50 flex justify-end items-center space-x-2">
+        <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
           <BsMoon
             size={24}
             className={`hidden cursor-pointer ${darkToggle && "dark:block"}`}
@@ -120,6 +111,29 @@ const Header = ({
             className={`cursor-pointer ${darkToggle && "dark:hidden"}`}
             onClick={() => setDark(!darkToggle)}
           />
+        </motion.div>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="bg-secondary-color text-primary-color rounded-lg px-2 py-1 ml-3"
+        >
+          Resume
+        </motion.button>
+      </div>
+      <div className="relative items-center z-40 md:hidden">
+        <div className="relative z-50 flex justify-end items-center space-x-2">
+          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+            <BsMoon
+              size={24}
+              className={`hidden cursor-pointer ${darkToggle && "dark:block"}`}
+              onClick={() => setDark(!darkToggle)}
+            />
+            <BsSun
+              size={24}
+              className={`cursor-pointer ${darkToggle && "dark:hidden"}`}
+              onClick={() => setDark(!darkToggle)}
+            />
+          </motion.div>
           <Hamburger
             size={28}
             duration={0.8}

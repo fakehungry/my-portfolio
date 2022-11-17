@@ -29,6 +29,7 @@ const HamburgerMenu = ({
       <nav className="text-center text-2xl h-full">
         <div className="flex flex-col font-semibold justify-evenly h-full">
           <Link
+            className="hover:text-secondary-color hover:font-bold"
             href="#about"
             onClick={() => {
               setHamburgerOpen();
@@ -37,6 +38,7 @@ const HamburgerMenu = ({
             About
           </Link>
           <Link
+            className="hover:text-secondary-color hover:font-bold"
             href="#projects"
             onClick={() => {
               setHamburgerOpen();
@@ -45,6 +47,7 @@ const HamburgerMenu = ({
             Projects
           </Link>
           <Link
+            className="hover:text-secondary-color hover:font-bold"
             href="#experiences"
             onClick={() => {
               setHamburgerOpen();
@@ -53,6 +56,7 @@ const HamburgerMenu = ({
             Experiences
           </Link>
           <Link
+            className="hover:text-secondary-color hover:font-bold"
             href="#contact"
             onClick={() => {
               setHamburgerOpen();
@@ -61,6 +65,7 @@ const HamburgerMenu = ({
             Contact
           </Link>
           <Link
+            className="hover:text-secondary-color hover:font-bold"
             href="/blog"
             onClick={() => {
               setHamburgerOpen();
@@ -68,16 +73,16 @@ const HamburgerMenu = ({
           >
             Blog
           </Link>
-          <button
+          <motion.button
+            whileHover={{ scale: 0.9 }}
+            whileTap={{ scale: 1.1 }}
             className={`rounded-lg py-1 mx-10 ${
               darkToggle ? "btn-light" : "btn-dark"
             }`}
-            onClick={() => {
-              setHamburgerOpen();
-            }}
           >
+            <Link href="#"></Link>
             Resume
-          </button>
+          </motion.button>
         </div>
       </nav>
     </motion.div>

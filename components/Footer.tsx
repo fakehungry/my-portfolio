@@ -8,6 +8,7 @@ import {
   SiDiscord,
   SiLine,
 } from "react-icons/si";
+import { motion } from "framer-motion";
 
 type Props = { darkToggle: boolean };
 
@@ -27,24 +28,67 @@ const Footer = ({ darkToggle }: Props) => {
           darkToggle ? "light" : "dark"
         }`}
       >
-        <Link href="#">
-          <SiGithub size={24} />
-        </Link>
-        <Link href="#">
-          <SiLinkedin size={24} />
-        </Link>
-        <Link href="#">
-          <SiDiscord size={24} />
-        </Link>
-        <Link href="#">
-          <SiTwitter size={24} />
-        </Link>
-        <Link href="#">
-          <SiFacebook size={24} />
-        </Link>
-        <Link href="#">
-          <SiLine size={24} />
-        </Link>
+        <motion.div
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 1.1 }}
+          className="hover:text-secondary-color"
+        >
+          <Link href="https://github.com/fakehungry" target="_blank">
+            <SiGithub size={24} />
+          </Link>
+        </motion.div>
+
+        <motion.div
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 1.1 }}
+          className="hover:text-secondary-color"
+        >
+          <Link
+            href="https://www.linkedin.com/in/chaikit-ruang/"
+            target="_blank"
+          >
+            <SiLinkedin size={24} />
+          </Link>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 1.1 }}
+          className="hover:text-secondary-color"
+        >
+          <Link
+            href="https://discord.com/users/1042699111989510144"
+            target="_blank"
+          >
+            <SiDiscord size={24} />
+          </Link>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 1.1 }}
+          className="hover:text-secondary-color"
+        >
+          <Link href="https://twitter.com/ChaikitR" target="_blank">
+            <SiTwitter size={24} />
+          </Link>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 1.1 }}
+          className="hover:text-secondary-color"
+        >
+          <Link href="https://www.facebook.com/chaikit.ruang" target="_blank">
+            <SiFacebook size={24} />
+          </Link>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 1.1 }}
+          className="hover:text-secondary-color"
+        >
+          <Link href="https://line.me/ti/p/RN5IztkarV" target="_blank">
+            <SiLine size={24} />
+          </Link>
+        </motion.div>
       </div>
     </footer>
   );

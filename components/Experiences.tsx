@@ -6,6 +6,7 @@ type Props = {};
 
 const Experiences = (props: Props) => {
   const [active, setActive] = useState(1);
+
   const myEXP = [
     {
       id: 1,
@@ -48,7 +49,10 @@ const Experiences = (props: Props) => {
             <button
               key={item.id}
               onClick={() => setActive(item.id)}
-              className="text-sm border-t-2 border-primary-color-darker py-2 px-1 md:px-3 md:border-l-2 md:border-t-0 hover:bg-primary-color-darker hover:text-secondary-color focus:bg-primary-color-darker focus:text-secondary-color focus:font-bold focus:border-secondary-color"
+              className={`text-sm border-t-2 border-primary-color-darker py-2 px-1 md:px-3 md:border-l-2 md:border-t-0 hover:bg-primary-color-darker hover:text-secondary-color transition ease-in-out duration-500 ${
+                item.id === active &&
+                "bg-primary-color-darker text-secondary-color font-bold border-secondary-color"
+              }`}
             >
               {item.company}
             </button>

@@ -45,7 +45,7 @@ const Home: NextPage = () => {
 
         <section
           id="about"
-          className="mb-40 max-w-7xl mx-auto flex flex-col justify-center items-center"
+          className="mb-40 max-w-7xl mx-auto flex flex-col justify-center items-center overflow-x-hidden"
         >
           <About />
         </section>
