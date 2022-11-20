@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.example
 .env
 
 # vercel
@@ -38,5 +39,3 @@ next-env.d.ts
 
 # sanity
 backend-sanity/node_modules
-
-.vercel
