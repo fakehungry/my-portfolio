@@ -36,6 +36,7 @@ const Header = ({
           direction !== scrollDirection &&
           (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
         ) {
+          // @ts-ignore
           setScrollDirection(direction);
         }
         lastScrollY = scrollY > 0 ? scrollY : 0;
@@ -143,8 +144,8 @@ const Header = ({
             size={28}
             duration={0.8}
             color={darkToggle ? "#17252a" : "#def2f1"}
-            toggled={hamburgerOpen}
-            toggle={setHamburgerOpen}
+            toggled={hamburgerOpen} // @ts-ignore
+            toggle={setHamburgerOpen} // @ts-ignore
           />
         </div>
         <div className="relative">

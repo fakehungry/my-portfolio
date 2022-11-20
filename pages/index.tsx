@@ -23,7 +23,7 @@ type Props = {
   socials: Social[];
 };
 
-const Home: NextPage = ({
+const Home: NextPage<Props> = ({
   pageInfo,
   experiences,
   projects,

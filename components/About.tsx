@@ -54,11 +54,11 @@ const About = ({ pageInfo, skills }: Props) => {
             initial={{ opacity: 0 }}
             whileInView={{ y: [-100, 0, -50, 0, -25, 0], opacity: 1 }}
             transition={{
-              y: { duration: 1.5, ease: "easeOut" },
-              duration: "1.5",
-              type: "spring",
-              stiffness: 500,
-              damping: 30,
+              y: { duration: 1.5, ease: "easeOut" }, // @ts-ignore
+              duration: "1.5", // @ts-ignore
+              type: "spring", // @ts-ignore
+              stiffness: 500, // @ts-ignore
+              damping: 30, // @ts-ignore
             }}
             viewport={{ once: true }}
             className="flex space-x-4 justify-center"
