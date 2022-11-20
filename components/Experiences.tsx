@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { Experience } from "../typings";
 
 type Props = { experiences: Experience[] };
@@ -7,7 +7,7 @@ const Experiences = ({ experiences }: Props) => {
   const [active, setActive] = useState(experiences[0]._id);
 
   return (
-    <>
+    <div>
       <h2 className="text-xl font-semibold text-center mb-5">
         Where I&apos;ve experienced
       </h2>
@@ -58,7 +58,7 @@ const Experiences = ({ experiences }: Props) => {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 };
 

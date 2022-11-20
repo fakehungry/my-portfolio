@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PageInfo, Skill } from "../typings";
@@ -11,7 +11,7 @@ type Props = {
 
 const About = ({ pageInfo, skills }: Props) => {
   return (
-    <>
+    <div>
       <h2 className="text-xl font-semibold text-center w-80 md:w-full">
         Something you should know about{" "}
         <span className="text-secondary-color font-bold">
@@ -97,7 +97,7 @@ const About = ({ pageInfo, skills }: Props) => {
           />
         </motion.div>
       </div>
-    </>
+    </div>
   );
 };
 

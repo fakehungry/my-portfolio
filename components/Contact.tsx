@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { PageInfo } from "../typings";
 
@@ -6,7 +6,7 @@ type Props = { pageInfo: PageInfo };
 
 const Contact = ({ pageInfo }: Props) => {
   return (
-    <>
+    <div>
       <h2 className="text-xl font-semibold text-center mb-5">Connect to me</h2>
       <div className="flex flex-col h-40 w-8/12 justify-between text-center text-base mx-auto">
         <p className="">
@@ -22,7 +22,7 @@ const Contact = ({ pageInfo }: Props) => {
           Mail me
         </motion.button>
       </div>
-    </>
+    </div>
   );
 };
 

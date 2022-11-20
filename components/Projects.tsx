@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { GoLinkExternal, GoMarkGithub } from "react-icons/go";
@@ -9,7 +9,7 @@ type Props = { darkToggle: boolean; projects: Project[] };
 
 const Projects = ({ darkToggle, projects }: Props) => {
   return (
-    <>
+    <div>
       <h2 className="text-xl font-semibold text-center mb-5">
         Sample of my creativities
       </h2>
@@ -76,7 +76,7 @@ const Projects = ({ darkToggle, projects }: Props) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Image from "next/image";
 import RippleStroked from "./RippleStroked";
 import { PageInfo } from "../typings";
@@ -8,7 +8,7 @@ type Props = { pageInfo: PageInfo };
 
 const Hero = ({ pageInfo }: Props) => {
   return (
-    <>
+    <div>
       <div className="flex flex-col justify-center items-center md:space-x-10 md:flex-row">
         <div className="relative w-80 h-80">
           <div className="w-full h-full bg-gradient-to-br from-secondary-color to-slate-100 rounded-full overflow-hidden relative z-20">
@@ -34,7 +34,7 @@ const Hero = ({ pageInfo }: Props) => {
           {pageInfo.introduce}
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
