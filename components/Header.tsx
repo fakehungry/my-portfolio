@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsMoon, BsSun } from "react-icons/bs";
-import me from "../public/assets/chaikit-avatar.png";
 import { motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import HamburgerMenu from "./HamburgerMenu";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
 type Props = {
   darkToggle: boolean;
   setDark: Function;
   hamburgerOpen: boolean;
   setHamburgerOpen: Function;
+  pageInfo: PageInfo;
 };
 
 const Header = ({
@@ -19,6 +21,7 @@ const Header = ({
   setDark,
   hamburgerOpen,
   setHamburgerOpen,
+  pageInfo,
 }: Props) => {
   function useScrollDirection() {
     const [scrollDirection, setScrollDirection] = useState(null);
@@ -73,7 +76,7 @@ const Header = ({
         className="w-[36px] h-[36px] relative"
       >
         <Link href="/">
-          <Image src={me} alt="logo" />
+          <Image src={urlFor(pageInfo.myAvatar).url()} fill alt="logo" />
         </Link>
       </motion.div>
       <nav
@@ -117,7 +120,9 @@ const Header = ({
           whileTap={{ scale: 0.9 }}
           className="bg-secondary-color text-primary-color rounded-lg px-2 py-1 ml-3"
         >
-          Resume
+          <Link target="_blank" href={`${pageInfo.resumeUrl}?dl=`}>
+            Resume
+          </Link>
         </motion.button>
       </div>
       <div className="relative items-center z-40 md:hidden">

@@ -4,9 +4,19 @@ export default {
   type: "document",
   fields: [
     {
-      name: "name",
-      title: "Name",
+      name: "firstName",
+      title: "First Name",
       type: "string",
+    },
+    {
+      name: "lastName",
+      title: "Last Name",
+      type: "string",
+    },
+    {
+      name: "introduce",
+      title: "Introduce Yourself",
+      type: "text",
     },
     {
       name: "role",
@@ -14,8 +24,16 @@ export default {
       type: "string",
     },
     {
-      name: "heroImage",
-      title: "Image",
+      name: "myPicture",
+      title: "My Picture",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "myAvatar",
+      title: "My Avatar",
       type: "image",
       options: {
         hotspot: true,
@@ -46,6 +64,11 @@ export default {
           to: { type: "social" },
         },
       ],
+    },
+    {
+      name: "resume",
+      title: "Resume",
+      type: "file",
     },
   ],
 };

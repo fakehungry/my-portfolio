@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
 
-type Props = {};
+type Props = { pageInfo: PageInfo };
 
-const Contact = (props: Props) => {
+const Contact = ({ pageInfo }: Props) => {
   return (
     <>
       <h2 className="text-xl font-semibold text-center mb-5">Connect to me</h2>
@@ -15,6 +16,7 @@ const Contact = (props: Props) => {
         <motion.button
           whileHover={{ scale: 0.9 }}
           whileTap={{ scale: 1.1 }}
+          onClick={() => (window.location = `mailto:${pageInfo.email}`)}
           className="uppercase text-base font-bold bg-secondary-color rounded-lg w-30 px-4 py-1 mx-auto text-primary-color"
         >
           Mail me

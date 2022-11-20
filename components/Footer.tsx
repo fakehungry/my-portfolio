@@ -9,10 +9,11 @@ import {
   SiLine,
 } from "react-icons/si";
 import { motion } from "framer-motion";
+import { Social } from "../typings";
 
-type Props = { darkToggle: boolean };
+type Props = { darkToggle: boolean; socials: Social[] };
 
-const Footer = ({ darkToggle }: Props) => {
+const Footer = ({ darkToggle, socials }: Props) => {
   return (
     <footer
       id="footer"

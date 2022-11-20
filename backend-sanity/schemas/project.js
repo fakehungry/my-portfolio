@@ -29,7 +29,7 @@ export default {
     },
     {
       name: "linkToWebSite",
-      title: "Link To Web Site",
+      title: "Link To Website",
       type: "url",
     },
     {
