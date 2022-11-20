@@ -127,11 +127,16 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   // const skills: Skill[] = await fetchSkills();
   // const socials: Social[] = await fetchSocials();
 
-  const pageInfo: PageInfo = await sanityClient.fetch(queryPageInfo);
-  const experiences: Experience[] = await sanityClient.fetch(queryExperience);
-  const projects: Project[] = await sanityClient.fetch(queryProject);
-  const skills: Skill[] = await sanityClient.fetch(querySkill);
-  const socials: Social[] = await sanityClient.fetch(querySocial);
+  const resPageInfo = await sanityClient.fetch(queryPageInfo);
+  const pageInfo: PageInfo = resPageInfo;
+  const resExperience = await sanityClient.fetch(queryExperience);
+  const experiences: Experience[] = resExperience;
+  const resProject = await sanityClient.fetch(queryProject);
+  const projects: Project[] = resProject;
+  const resSkill = await sanityClient.fetch(querySkill);
+  const skills: Skill[] = resSkill;
+  const resSocial = await sanityClient.fetch(querySocial);
+  const socials: Social[] = resSocial;
 
   return {
     props: {
