@@ -29,7 +29,7 @@ const Home: NextPage<Props> = ({
   projects,
   socials,
   skills,
-}: Props) => {
+}) => {
   const [darkToggle, setDark] = useState(false);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
