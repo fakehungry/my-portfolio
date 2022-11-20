@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps } from "next";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
