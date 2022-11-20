@@ -153,6 +153,7 @@ const Header = ({
             hamburgerOpen={hamburgerOpen}
             setHamburgerOpen={setHamburgerOpen}
             darkToggle={darkToggle}
+            pageInfo={pageInfo}
           />
         </div>
       </div>

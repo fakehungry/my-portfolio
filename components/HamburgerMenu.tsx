@@ -1,17 +1,20 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
 
 type Props = {
   hamburgerOpen: boolean;
   darkToggle: boolean;
   setHamburgerOpen: Function;
+  pageInfo: PageInfo;
 };
 
 const HamburgerMenu = ({
   hamburgerOpen,
   setHamburgerOpen,
   darkToggle,
+  pageInfo,
 }: Props) => {
   const variants = {
     open: { opacity: 1, x: 0, y: 0 },
@@ -80,8 +83,9 @@ const HamburgerMenu = ({
               darkToggle ? "btn-light" : "btn-dark"
             }`}
           >
-            <Link href="#"></Link>
-            Resume
+            <Link target="_blank" href={`${pageInfo.resumeUrl}?dl=`}>
+              Resume
+            </Link>
           </motion.button>
         </div>
       </nav>
