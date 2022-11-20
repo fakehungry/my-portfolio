@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { motion } from "framer-motion";
 
 export default function RippleStroked({ size, speed, delay, stroke, color }) {
