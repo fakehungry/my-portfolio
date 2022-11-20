@@ -9,11 +9,6 @@ import Experiences from "../components/Experiences";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { Experience, PageInfo, Project, Skill, Social } from "../typings";
-import { fetchExperiences } from "../utils/fetchExperiences";
-import { fetchProjects } from "../utils/fetchProjects";
-import { fetchSkills } from "../utils/fetchSkills";
-import { fetchSocials } from "../utils/fetchSocials";
-import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { groq } from "next-sanity";
 import { sanityClient } from "../sanity";
 
@@ -121,12 +116,6 @@ const Home: NextPage<Props> = ({
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  // const pageInfo: PageInfo = await fetchPageInfo();
-  // const experiences: Experience[] = await fetchExperiences();
-  // const projects: Project[] = await fetchProjects();
-  // const skills: Skill[] = await fetchSkills();
-  // const socials: Social[] = await fetchSocials();
-
   const resPageInfo = await sanityClient.fetch(queryPageInfo);
   const pageInfo: PageInfo = resPageInfo;
   const resExperience = await sanityClient.fetch(queryExperience);
