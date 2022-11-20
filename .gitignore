@@ -38,3 +38,5 @@ next-env.d.ts
 
 # sanity
 backend-sanity/node_modules
+
+.vercel
