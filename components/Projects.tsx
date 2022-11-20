@@ -28,7 +28,6 @@ const Projects = ({ darkToggle, projects }: Props) => {
                 alt={project.title}
                 src={urlFor(project.image).url()}
                 fill
-                objectFit="cover"
                 className="rounded-lg"
               />
             </div>

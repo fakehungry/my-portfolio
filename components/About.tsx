@@ -55,10 +55,10 @@ const About = ({ pageInfo, skills }: Props) => {
             whileInView={{ y: [-100, 0, -50, 0, -25, 0], opacity: 1 }}
             transition={{
               y: { duration: 1.5, ease: "easeOut" },
-              duration: 1.5,
-              type: "spring",
-              stiffness: 500,
-              damping: 30,
+              // duration: "1.5",
+              // type: "spring",
+              // stiffness: 500,
+              // damping: 30,
             }}
             viewport={{ once: true }}
             className="flex space-x-4 justify-center"
