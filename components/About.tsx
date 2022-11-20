@@ -28,26 +28,26 @@ const About = ({ pageInfo, skills }: Props) => {
           >
             <p className="text-base">
               Hi! My name is Chaikit Ruangsakulpat. I started my journey in web
-              development in 2019 by self-learning. It's an interesting job
+              development in 2019 by self-learning. It&apos;s an interesting job
               because we can show anything in my head to the real world. In
               business, I guide you how to create special things with simple
-              system to your customer. It's leverage the power of technology to
-              be competitive with others.
+              system to your customer. It&apos;s leverage the power of
+              technology to be competitive with others.
             </p>
             <p className="text-base mt-4">
               Also, I have a skill in data analytics. You never refuse that data
-              plays a crucial role in every companys today. It's a fun part to
-              pull insight from it. With combine skills in both web development
-              & data analytics, I can create system and strategy that meet your
-              requirements.
+              plays a crucial role in every companys today. It&apos;s a fun part
+              to pull insight from it. With combine skills in both web
+              development & data analytics, I can create system and strategy
+              that meet your requirements.
             </p>
             <p className="text-base mt-4">
-              Now, I'm a freelance developer with many projects I would like to
-              create. You can find my projects below, I commit that it will
-              complete within this year (2022)😁😁.
+              Now, I&apos;m a freelance developer with many projects I would
+              like to create. You can find my projects below, I commit that it
+              will complete within this year (2022)😁😁.
             </p>
             <p className="text-base my-4">
-              Here are tools I've been working with:
+              Here are tools I&apos;ve been working with:
             </p>
           </motion.div>
           <motion.div
@@ -69,6 +69,7 @@ const About = ({ pageInfo, skills }: Props) => {
                 className="relative flex justify-center item-center w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]"
               >
                 <Image
+                  alt={skill.title}
                   src={urlFor(skill.image).url()}
                   fill
                   className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]"
@@ -88,6 +89,7 @@ const About = ({ pageInfo, skills }: Props) => {
           className="flex justify-center items-center md:h-[468px]"
         >
           <Image
+            alt={pageInfo.firstName}
             src={urlFor(pageInfo.myPicture).url()}
             width={500}
             height={500}

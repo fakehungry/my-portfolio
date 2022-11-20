@@ -25,6 +25,7 @@ const Projects = ({ darkToggle, projects }: Props) => {
           >
             <div className="w-80 relative cursor-pointer md:h-80 md:w-[30rem]">
               <Image
+                alt={project.title}
                 src={urlFor(project.image).url()}
                 fill
                 objectFit="cover"
