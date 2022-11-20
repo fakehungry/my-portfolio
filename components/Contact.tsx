@@ -16,7 +16,7 @@ const Contact = ({ pageInfo }: Props) => {
         <motion.button
           whileHover={{ scale: 0.9 }}
           whileTap={{ scale: 1.1 }}
-          onClick={() => (window.location = `mailto:${pageInfo.email}`)}
+          onClick={() => window.location.assign(`mailto:${pageInfo.email}`)}
           className="uppercase text-base font-bold bg-secondary-color rounded-lg w-30 px-4 py-1 mx-auto text-primary-color"
         >
           Mail me
