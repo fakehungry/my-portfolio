@@ -76,7 +76,7 @@ const Header = ({
         whileTap={{ scale: 0.9 }}
         className="w-[36px] h-[36px] relative"
       >
-        <Link href="/">
+        <Link href="#top">
           <Image src={urlFor(pageInfo.myAvatar).url()} fill alt="logo" />
         </Link>
       </motion.div>
