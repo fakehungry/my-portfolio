@@ -32,6 +32,7 @@ export interface PageInfo extends SanityBody {
   role: string;
   resume: File;
   socials: Social[];
+  resumeUrl: string;
 }
 
 export interface Skill extends SanityBody {
