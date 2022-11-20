@@ -14,6 +14,8 @@ import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { groq } from "next-sanity";
+import { sanityClient } from "../sanity";
 
 type Props = {
   pageInfo: PageInfo;
@@ -22,6 +24,29 @@ type Props = {
   skills: Skill[];
   socials: Social[];
 };
+
+const queryPageInfo = groq`
+    *[_type == "pageInfo"][0] {
+      ...,
+      "resumeUrl": resume.asset->url
+    }
+`;
+
+const queryExperience = groq`
+    *[_type == "experience"]  | order(_createdAt asc)
+`;
+
+const queryProject = groq`
+    *[_type == "project"]
+`;
+
+const querySkill = groq`
+    *[_type == "skill"]  | order(_createdAt asc)
+`;
+
+const querySocial = groq`
+    *[_type == "social"]
+`;
 
 const Home: NextPage<Props> = ({
   pageInfo,
@@ -96,11 +121,17 @@ const Home: NextPage<Props> = ({
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const projects: Project[] = await fetchProjects();
-  const skills: Skill[] = await fetchSkills();
-  const socials: Social[] = await fetchSocials();
+  // const pageInfo: PageInfo = await fetchPageInfo();
+  // const experiences: Experience[] = await fetchExperiences();
+  // const projects: Project[] = await fetchProjects();
+  // const skills: Skill[] = await fetchSkills();
+  // const socials: Social[] = await fetchSocials();
+
+  const pageInfo: PageInfo = await sanityClient.fetch(queryPageInfo);
+  const experiences: Experience[] = await sanityClient.fetch(queryExperience);
+  const projects: Project[] = await sanityClient.fetch(queryProject);
+  const skills: Skill[] = await sanityClient.fetch(querySkill);
+  const socials: Social[] = await sanityClient.fetch(querySocial);
 
   return {
     props: {
