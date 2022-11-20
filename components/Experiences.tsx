@@ -9,7 +9,7 @@ const Experiences = ({ experiences }: Props) => {
   return (
     <>
       <h2 className="text-xl font-semibold text-center mb-5">
-        Where I've experienced
+        Where I&apos;ve experienced
       </h2>
       <div className="flex flex-col text-left space-x-6 px-5 md:px-20 md:flex-row">
         <div className="flex text-left mb-1 md:flex-col">
