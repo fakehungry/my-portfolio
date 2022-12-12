@@ -26,29 +26,11 @@ const About = ({ pageInfo, skills }: Props) => {
             transition={{ duration: 1.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-base">
-              Hi! My name is Chaikit Ruangsakulpat. I started my journey in web
-              development in 2019 by self-learning. It&apos;s an interesting job
-              because we can show anything in my head to the real world. In
-              business, I guide you how to create special things with simple
-              system to your customer. It&apos;s leverage the power of
-              technology to be competitive with others.
-            </p>
-            <p className="text-base mt-4">
-              Also, I have a skill in data analytics. You never refuse that data
-              plays a crucial role in every companys today. It&apos;s a fun part
-              to pull insight from it. With combine skills in both web
-              development & data analytics, I can create system and strategy
-              that meet your requirements.
-            </p>
-            <p className="text-base mt-4">
-              Now, I&apos;m a freelance developer with many projects I would
-              like to create. You can find my projects below, I commit that it
-              will complete within this year (2022)😁😁.
-            </p>
-            <p className="text-base my-4">
-              Here are tools I&apos;ve been working with:
-            </p>
+            {pageInfo.about.map((a) => (
+              <p key={a._id} className="text-base mt-4 first:mt-0">
+                {a}
+              </p>
+            ))}
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}

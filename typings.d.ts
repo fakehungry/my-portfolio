@@ -28,6 +28,7 @@ export interface PageInfo extends SanityBody {
   firstName: string;
   lastName: string;
   introduce: string;
+  about: text[];
   phoneNumber: string;
   role: string;
   resume: File;

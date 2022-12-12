@@ -28,7 +28,7 @@ const queryPageInfo = groq`
 `;
 
 const queryExperience = groq`
-    *[_type == "experience"]  | order(_createdAt asc)
+    *[_type == "experience"]  | order(_createdAt desc)
 `;
 
 const queryProject = groq`

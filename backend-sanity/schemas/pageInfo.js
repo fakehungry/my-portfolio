@@ -19,6 +19,16 @@ export default {
       type: "text",
     },
     {
+      name: "about",
+      title: "About",
+      type: "array",
+      of: [
+        {
+          type: "text",
+        },
+      ],
+    },
+    {
       name: "role",
       title: "Role",
       type: "string",
