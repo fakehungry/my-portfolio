@@ -1,4 +1,4 @@
-# [My Portfolio]()
+# [My Portfolio](https://www.chaikitr.com/)
 
 This is a first project of my web developer journey. It taught me a lot when I have to do real work. This project shows who am I, what project I complete, what skill I have, where I work before, my contact, and link to my blog. I use Next, Tailwind, Framer, and Sanity to build the project.
 
