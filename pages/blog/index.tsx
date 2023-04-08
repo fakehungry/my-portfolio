@@ -1,13 +1,44 @@
-import React from "react";
+import type { GetStaticProps, NextPage } from "next";
+import { groq } from "next-sanity";
+import React, { useState } from "react";
+import Header from "../../components/Header";
+import { sanityClient } from "../../sanity";
+import { PageInfo } from "../../typings";
 
-type Props = {};
+type Props = { pageInfo: PageInfo };
 
-const index = (props: Props) => {
+const queryPageInfo = groq`
+    *[_type == "pageInfo"][0] {
+      ...,
+      "resumeUrl": resume.asset->url
+    }
+`;
+
+const Blog: NextPage<Props> = ({ pageInfo }) => {
+  const [darkToggle, setDark] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
   return (
-    <div className="dark h-screen w-screen flex justify-center items-center font-bold text-4xl font-primary">
-      Will be launched soon
-    </div>
+    <Header
+      darkToggle={darkToggle}
+      setDark={setDark}
+      hamburgerOpen={hamburgerOpen}
+      setHamburgerOpen={setHamburgerOpen}
+      pageInfo={pageInfo}
+    ></Header>
   );
 };
 
-export default index;
+export default Blog;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const resPageInfo = await sanityClient.fetch(queryPageInfo);
+  const pageInfo: PageInfo = resPageInfo;
+
+  return {
+    props: {
+      pageInfo,
+    },
+    revalidate: 60 * 60,
+  };
+};
