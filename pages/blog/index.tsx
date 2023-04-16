@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import { sanityClient } from "../../sanity";
 import { PageInfo } from "../../typings";
+import ExpandableSearchInput from "../../components/ExpandableSearch";
+import NavBar from "../../components/NavBar";
 
 type Props = { pageInfo: PageInfo };
 
@@ -18,15 +20,7 @@ const Blog: NextPage<Props> = ({ pageInfo }) => {
   const [darkToggle, setDark] = useState(false);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
-  return (
-    <Header
-      darkToggle={darkToggle}
-      setDark={setDark}
-      hamburgerOpen={hamburgerOpen}
-      setHamburgerOpen={setHamburgerOpen}
-      pageInfo={pageInfo}
-    ></Header>
-  );
+  return <NavBar />;
 };
 
 export default Blog;
