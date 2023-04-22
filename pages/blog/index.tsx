@@ -1,11 +1,12 @@
 import type { GetStaticProps, NextPage } from "next";
 import { groq } from "next-sanity";
 import React, { useState } from "react";
-import Header from "../../components/Header";
 import { sanityClient } from "../../sanity";
 import { PageInfo } from "../../typings";
-import ExpandableSearchInput from "../../components/ExpandableSearch";
 import NavBar from "../../components/NavBar";
+import { Box, Divider, styled } from "@mui/material";
+import BlogPosts from "../../components/BlogPosts";
+import RightSideBar from "../../components/RightSideBar";
 
 type Props = { pageInfo: PageInfo };
 
@@ -16,11 +17,30 @@ const queryPageInfo = groq`
     }
 `;
 
+const ContentWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  maxWidth: 1336,
+  margin: "0 auto",
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+  },
+}));
+
 const Blog: NextPage<Props> = ({ pageInfo }) => {
   const [darkToggle, setDark] = useState(false);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
-  return <NavBar />;
+  return (
+    <>
+      <NavBar />
+      <ContentWrapper>
+        <BlogPosts />
+        <Divider orientation="vertical" flexItem />
+        <RightSideBar />
+      </ContentWrapper>
+    </>
+  );
 };
 
 export default Blog;
