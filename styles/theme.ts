@@ -4,14 +4,16 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     common: {
-      black: "#000",
-      white: "#fff",
+      black: "#142226",
+      white: "#17252a",
     },
     primary: {
-      main: "#1e88e5",
+      main: "#feffff",
+      dark: "#def2f1",
     },
     secondary: {
-      main: "#f50057",
+      main: "#3aafa9",
+      dark: "#2b7a78",
     },
   },
   shape: {
@@ -19,5 +21,12 @@ const theme = createTheme({
   },
   spacing: 8,
 });
+
+// --primary-color: #feffff;
+// --primary-color-darker: #def2f1;
+// --secondary-color: #3aafa9;
+// --dark-primary-color: #17252a;
+// --dark-primary-color-darker: #142226;
+// --dark-secondary-color: #2b7a78;
 
 export default theme;

@@ -21,12 +21,6 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: theme.palette.common.white,
-  backgroundColor: theme.palette.common.black,
-  width: "100%",
-}));
-
 const ExpandableSearch = () => {
   const [expanded, setExpanded] = useState(false);
 
@@ -34,12 +28,17 @@ const ExpandableSearch = () => {
     <Search
       sx={{
         width: expanded ? "200px" : "30px",
+        bgcolor: "primary.dark",
       }}
       onClick={() => setExpanded(true)}
       onBlur={() => setExpanded(false)}
     >
       <SearchIcon />
-      <StyledInputBase autoFocus placeholder="Search…" />
+      <InputBase
+        sx={{ color: "common.light", width: "100%" }}
+        autoFocus
+        placeholder="Search…"
+      />
     </Search>
   );
 };
