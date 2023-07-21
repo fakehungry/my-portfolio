@@ -8,14 +8,14 @@ type Link = {
 };
 
 export interface DropdownProps {
-  children: string | React.ReactNode;
+  title: string | React.ReactNode;
   links: Link[];
 }
 
-const Dropdown = ({ children, links }: DropdownProps) => {
+const Dropdown = ({ title, links }: DropdownProps) => {
   return (
     <DropdownContainer>
-      <div className="children">{children}</div>
+      <div className="title">{title}</div>
       <div className="content">
         {links.map((link, index) => {
           return (

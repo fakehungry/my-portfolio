@@ -5,7 +5,7 @@ export const DropdownContainer = styled.div`
   display: inline-block;
   font-size: 14px;
 
-  .children {
+  .title {
     padding: 16px;
     border: none;
   }
