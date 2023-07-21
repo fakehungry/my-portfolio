@@ -1,4 +1,3 @@
-"use client";
 import Dropdown from "@components/dropdown/Dropdown";
 import { Metadata } from "next";
 
