@@ -50,7 +50,7 @@ const Experiences = ({ experiences }: Props) => {
                       key={index}
                       className="indent-[-1em] before:content-['▹'] before:text-secondary-color"
                     >
-                      {item}
+                      {` ${item}`}
                     </li>
                   ))}
                 </ul>
