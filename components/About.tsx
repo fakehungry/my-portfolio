@@ -13,7 +13,7 @@ const About = ({ pageInfo, skills }: Props) => {
   return (
     <div>
       <h2 className="text-xl font-semibold text-center w-80 mx-auto md:w-full">
-        Something you should know about{" "}
+        Something you should know about
         <span className="text-secondary-color font-bold">
           {pageInfo.firstName}
         </span>
@@ -26,8 +26,8 @@ const About = ({ pageInfo, skills }: Props) => {
             transition={{ duration: 1.2 }}
             viewport={{ once: true }}
           >
-            {pageInfo.about.map((a) => (
-              <p key={a._id} className="text-base mt-4 mx-4 first:mt-0">
+            {pageInfo.about.map((a, i) => (
+              <p key={i} className="text-base mt-4 mx-4 first:mt-0">
                 {a}
               </p>
             ))}
@@ -45,9 +45,9 @@ const About = ({ pageInfo, skills }: Props) => {
             viewport={{ once: true }}
             className="flex flex-wrap w-80 h-full items-end space-x-4 space-y-4 justify-start mx-auto mt-4 md:w-full md:justify-center"
           >
-            {skills.map((skill) => (
+            {skills.map((skill, i) => (
               <div
-                key={skill._id}
+                key={i}
                 className="relative w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]"
               >
                 <Image
