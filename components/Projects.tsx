@@ -28,6 +28,7 @@ const Projects = ({ darkToggle, projects }: Props) => {
                 alt={project.title}
                 src={urlFor(project.image).url()}
                 fill
+                style={{ objectFit: "cover" }}
                 className="rounded-lg"
               />
             </div>
@@ -47,7 +48,7 @@ const Projects = ({ darkToggle, projects }: Props) => {
                       className="text-sm indent-[-1em] before:content-['▹'] before:text-secondary-color"
                       key={index}
                     >
-                      {item}
+                      {` ${item}`}
                     </li>
                   ))}
                 </ul>
