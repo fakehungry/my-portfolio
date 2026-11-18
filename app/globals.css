@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* Monochrome palette: black & white with two shades of gray */
+:root {
+  --bg: #000000;
+  --surface: #121212;
+  --surface-2: #1c1c1c;
+  --fg: #f5f5f5;
+  --muted: #a6a6a6;
+  --line: rgb(166 166 166 / 0.28);
+  --ring: rgb(166 166 166 / 0.14);
+  --blob: rgb(255 255 255 / 0.06);
+  --invert-bg: #f5f5f5;
+  --invert-fg: #121212;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #e9e9e9;
+  --surface: #f5f5f5;
+  --surface-2: #ffffff;
+  --fg: #121212;
+  --muted: #5e5e5e;
+  --line: rgb(18 18 18 / 0.18);
+  --ring: rgb(18 18 18 / 0.1);
+  --blob: rgb(0 0 0 / 0.05);
+  --invert-bg: #121212;
+  --invert-fg: #f5f5f5;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-ring: var(--ring);
+  --color-blob: var(--blob);
+  --color-invert-bg: var(--invert-bg);
+  --color-invert-fg: var(--invert-fg);
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 3px;
+  }
+}
+
+/* Muted, slightly warm photo tone that sits with the monochrome palette */
+@utility toned {
+  filter: saturate(0.72) contrast(1.06) brightness(0.96) sepia(0.12);
+  transition-property: filter, transform;
+  &:hover,
+  :where(.group):hover & {
+    filter: saturate(0.95) contrast(1.04) brightness(1) sepia(0.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}

@@ -1,164 +1,158 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import { urlFor } from "@/lib/sanity";
+import type { PageInfo } from "@/lib/types";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { BsMoon, BsSun } from "react-icons/bs";
-import { motion } from "framer-motion";
-import { Sling as Hamburger } from "hamburger-react";
-import HamburgerMenu from "./HamburgerMenu";
-import { PageInfo } from "../typings";
-import { urlFor } from "../sanity";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
 
-type Props = {
-  darkToggle: boolean;
-  setDark: Function;
-  hamburgerOpen: boolean;
-  setHamburgerOpen: Function;
-  pageInfo: PageInfo;
-};
+const links = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
+];
 
-const Header = ({
-  darkToggle,
-  setDark,
-  hamburgerOpen,
-  setHamburgerOpen,
-  pageInfo,
-}: Props) => {
-  function useScrollDirection() {
-    const [scrollDirection, setScrollDirection] = useState(null);
+function useHideOnScroll() {
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 10) return;
+      setHidden(y > last && y > 120);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return hidden;
+}
 
-    useEffect(() => {
-      let lastScrollY = window.pageYOffset;
+function subscribeTheme(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => observer.disconnect();
+}
 
-      const updateScrollDirection = () => {
-        const scrollY = window.pageYOffset;
-        const direction = scrollY > lastScrollY ? "down" : "up";
-        if (
-          direction !== scrollDirection &&
-          (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
-        ) {
-          // @ts-ignore
-          setScrollDirection(direction);
-        }
-        lastScrollY = scrollY > 0 ? scrollY : 0;
-      };
-      window.addEventListener("scroll", updateScrollDirection);
-      return () => {
-        window.removeEventListener("scroll", updateScrollDirection);
-      };
-    }, [scrollDirection]);
+function ThemeToggle() {
+  const light = useSyncExternalStore(
+    subscribeTheme,
+    () => document.documentElement.dataset.theme === "light",
+    () => false,
+  );
 
-    return scrollDirection;
-  }
-
-  const isScrollingDown = useScrollDirection();
+  const toggle = () => {
+    const next = !light;
+    if (next) document.documentElement.dataset.theme = "light";
+    else delete document.documentElement.dataset.theme;
+    try {
+      localStorage.setItem("theme", next ? "light" : "dark");
+    } catch {}
+  };
 
   return (
-    <motion.header
-      className={`sticky h-full flex top-0 justify-between py-2 text-base opacity-90 z-40 mx-auto px-5 transition-all duration-300 ${
-        isScrollingDown === "down" ? "-top-24" : "top-0"
-      } ${darkToggle ? "light" : "dark"}`}
-      initial={{
-        y: -100,
-        opacity: 0,
-        scale: 0.5,
-      }}
-      animate={{
-        y: 0,
-        opacity: 0.9,
-        scale: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={light ? "Switch to dark theme" : "Switch to light theme"}
+      className="grid size-9 place-items-center rounded-full border border-line transition hover:bg-invert-bg hover:text-invert-fg"
     >
-      <motion.div
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="w-[36px] h-[36px] relative"
-      >
-        <Link href="#top">
-          <Image src={urlFor(pageInfo.myAvatar).url()} fill alt="logo" />
-        </Link>
-      </motion.div>
-      <nav
-        className={`h-[32px] rounded-lg shadow-md px-4 py-1 hidden md:flex ${
-          darkToggle ? "light-darker" : "dark-darker dark:shadow-slate-600"
-        }`}
-      >
-        <ul className="flex space-x-6 font-medium">
-          <li className="hover:text-secondary-color hover:font-bold">
-            <Link href="#about">About</Link>
-          </li>
-          <li className="hover:text-secondary-color hover:font-bold">
-            <Link href="#projects">Projects</Link>
-          </li>
-          <li className="hover:text-secondary-color hover:font-bold">
-            <Link href="#experiences">Experiences</Link>
-          </li>
-          <li className="hover:text-secondary-color hover:font-bold">
-            <Link href="#contact">Contact</Link>
-          </li>
-          <li className="hover:text-secondary-color hover:font-bold">
-            <Link href="/blog">Blog</Link>
-          </li>
-        </ul>
-      </nav>
-      <div className={`items-center hidden md:flex`}>
-        <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-          <BsMoon
-            size={24}
-            className={`hidden cursor-pointer ${darkToggle && "dark:block"}`}
-            onClick={() => setDark(!darkToggle)}
-          />
-          <BsSun
-            size={24}
-            className={`cursor-pointer ${darkToggle && "dark:hidden"}`}
-            onClick={() => setDark(!darkToggle)}
-          />
-        </motion.div>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="bg-secondary-color text-primary-color rounded-lg px-2 py-1 ml-3"
-        >
-          <Link target="_blank" href={`${pageInfo.resumeUrl}?dl=`}>
-            Resume
-          </Link>
-        </motion.button>
-      </div>
-      <div className="relative items-center z-40 md:hidden">
-        <div className="relative z-50 flex justify-end items-center space-x-2">
-          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-            <BsMoon
-              size={24}
-              className={`hidden cursor-pointer ${darkToggle && "dark:block"}`}
-              onClick={() => setDark(!darkToggle)}
-            />
-            <BsSun
-              size={24}
-              className={`cursor-pointer ${darkToggle && "dark:hidden"}`}
-              onClick={() => setDark(!darkToggle)}
-            />
-          </motion.div>
-          <Hamburger
-            size={28}
-            duration={0.8}
-            color={darkToggle ? "#17252a" : "#def2f1"}
-            toggled={hamburgerOpen} // @ts-ignore
-            toggle={setHamburgerOpen} // @ts-ignore
-          />
-        </div>
-        <div className="relative">
-          <HamburgerMenu
-            hamburgerOpen={hamburgerOpen}
-            setHamburgerOpen={setHamburgerOpen}
-            darkToggle={darkToggle}
-            pageInfo={pageInfo}
-          />
-        </div>
-      </div>
-    </motion.header>
+      {light ? <FiMoon size={16} /> : <FiSun size={16} />}
+    </button>
   );
-};
+}
 
-export default Header;
+export default function Header({ pageInfo }: { pageInfo: PageInfo }) {
+  const hidden = useHideOnScroll();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${hidden && !open ? "-translate-y-full" : ""}`}>
+      <div className="mx-auto mt-3 flex max-w-6xl items-center justify-between gap-4 rounded-full border border-line bg-surface/80 px-3 py-2 backdrop-blur-md sm:mx-6 lg:mx-auto">
+        <Link href="#home" className="flex items-center gap-2.5" aria-label="Back to top">
+          <span className="relative size-9 overflow-hidden rounded-full bg-surface-2">
+            <Image src={urlFor(pageInfo.myAvatar).width(80).height(80).url()} alt="" fill sizes="36px" />
+          </span>
+          <span className="font-display text-sm leading-none font-medium tracking-[0.2em] uppercase">
+            {pageInfo.firstName}
+            <br />
+            <span className="text-muted">{pageInfo.lastName}</span>
+          </span>
+        </Link>
+
+        <nav aria-label="Main" className="hidden md:block">
+          <ul className="flex items-center gap-7 text-sm text-muted">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="transition hover:text-fg">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          {pageInfo.resumeUrl && (
+            <a
+              href={`${pageInfo.resumeUrl}?dl=`}
+              className="hidden rounded-full bg-invert-bg px-4 py-2 text-sm font-semibold text-invert-fg transition hover:opacity-85 sm:block"
+            >
+              Resume
+            </a>
+          )}
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="grid size-9 place-items-center rounded-full border border-line md:hidden"
+          >
+            {open ? <FiX size={18} /> : <FiMenu size={18} />}
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            aria-label="Mobile"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2 }}
+            className="mx-4 mt-2 rounded-3xl border border-line bg-surface p-6 md:hidden"
+          >
+            <ul className="font-display flex flex-col gap-4 text-2xl tracking-wide">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} onClick={() => setOpen(false)} className="block py-1">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {pageInfo.resumeUrl && (
+              <a href={`${pageInfo.resumeUrl}?dl=`} className="mt-6 block rounded-full bg-invert-bg py-3 text-center font-semibold text-invert-fg">
+                Download resume
+              </a>
+            )}
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
