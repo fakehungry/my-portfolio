@@ -17,6 +17,8 @@ const builder = createImageUrlBuilder(config);
 
 export const urlFor = (source: SanityImageSource) => builder.image(source).auto("format");
 
+export const PORTFOLIO_TAG = "portfolio";
+
 const portfolioQuery = `{
   "pageInfo": *[_type == "pageInfo"][0]{ ..., "resumeUrl": resume.asset->url },
   "experiences": *[_type == "experience"] | order(dateStarted desc),
@@ -26,5 +28,5 @@ const portfolioQuery = `{
 }`;
 
 export function getPortfolio() {
-  return sanityClient.fetch<PortfolioData>(portfolioQuery, {}, { next: { revalidate: 3600 } });
+  return sanityClient.fetch<PortfolioData>(portfolioQuery, {}, { next: { revalidate: 3600, tags: [PORTFOLIO_TAG] } });
 }

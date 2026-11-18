@@ -29,3 +29,11 @@ npm run format  # apply Biome fixes and formatting
 ```
 
 Content comes from the public Sanity dataset `r5zw8ps4/production` by default. Override with `NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` (see `.env.example`).
+
+### Instant content refresh
+
+Content is cached for an hour. To publish changes immediately, add a Sanity webhook (sanity.io/manage → API → Webhooks):
+
+- URL: `https://www.chaikitr.com/api/revalidate`, method `POST`
+- Trigger on create, update, and delete
+- Header `x-revalidate-secret` set to the same value as the `REVALIDATE_SECRET` env var on the host
