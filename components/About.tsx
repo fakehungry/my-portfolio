@@ -1,86 +1,106 @@
-import React from "react";
+import type { Stat } from "@/lib/format";
+import { urlFor } from "@/lib/sanity";
+import type { PageInfo, Skill } from "@/lib/types";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { PageInfo, Skill } from "../typings";
-import { urlFor } from "../sanity";
+import Section, { Title } from "./Section";
 
-type Props = {
-  pageInfo: PageInfo;
-  skills: Skill[];
-};
+type Props = { pageInfo: PageInfo; skills: Skill[]; stats: Stat[] };
 
-const About = ({ pageInfo, skills }: Props) => {
+export default function About({ pageInfo, skills, stats }: Props) {
+  const details = [
+    ["Name", `${pageInfo.firstName} ${pageInfo.lastName}`],
+    ["Role", pageInfo.role],
+    ["Email", pageInfo.email],
+    ["Phone", pageInfo.phoneNumber],
+    ["Location", pageInfo.address],
+  ].filter((d): d is [string, string] => Boolean(d[1]));
+
   return (
-    <div>
-      <h2 className="text-xl font-semibold text-center w-80 mx-auto md:w-full">
-        Something you should know about
-        <span className="text-secondary-color font-bold">
-          {pageInfo.firstName}
-        </span>
-      </h2>
-      <div className="flex flex-col-reverse justify-center items-center px-4 mt-3 text-left md:space-x-6 md:px-20 md:flex-row ">
-        <div className="flex flex-col justify-between md:h-[468px] md:w-[60%]">
-          <motion.div
-            initial={{ x: -200, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true }}
-          >
-            {pageInfo.about.map((a, i) => (
-              <p key={i} className="text-base mt-4 mx-4 first:mt-0">
-                {a}
-              </p>
+    <Section id="about" eyebrow="About">
+      <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr]">
+        <div>
+          <Title>About</Title>
+          <div className="space-y-4 leading-relaxed text-muted">
+            {pageInfo.about.map((p) => (
+              <p key={p}>{p}</p>
             ))}
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ y: [-100, 0, -50, 0, -25, 0], opacity: 1 }}
-            transition={{
-              y: { duration: 1.5, ease: "easeOut" }, // @ts-ignore
-              duration: "1.5", // @ts-ignore
-              type: "spring", // @ts-ignore
-              stiffness: 500, // @ts-ignore
-              damping: 30, // @ts-ignore
-            }}
-            viewport={{ once: true }}
-            className="flex flex-wrap w-80 h-full items-end space-x-4 space-y-4 justify-start mx-auto mt-4 md:w-full md:justify-center"
-          >
-            {skills.map((skill, i) => (
-              <div
-                key={i}
-                className="relative w-[30px] h-[30px] cursor-pointer md:w-[36px] md:h-[36px]"
-              >
-                <Image
-                  alt={skill.title}
-                  src={urlFor(skill.image).url()}
-                  fill
-                  className="rounded-full w-[30px] h-[30px] transition ease-in-out duration-500 hover:hidden md:w-[36px] md:h-[36px]"
-                />
-                <div className="absolute opacity-0 w-[30px] h-[30px] flex items-center text-[10px] justify-center font-light rounded-full bg-secondary-color text-primary-color transition ease-in-out duration-500 hover:opacity-90 md:w-[36px] md:h-[36px] md:text-base">
-                  {skill.level}%
-                </div>
+          </div>
+
+          <dl className="mt-8 grid grid-cols-[7rem_1fr] gap-x-3 gap-y-3 text-sm">
+            {details.map(([label, value]) => (
+              <div key={label} className="contents">
+                <dt className="flex justify-between text-muted after:content-[':']">{label}</dt>
+                <dd className="break-words font-semibold">
+                  {label === "Email" ? (
+                    <a href={`mailto:${value}`} className="underline-offset-4 hover:underline">
+                      {value}
+                    </a>
+                  ) : (
+                    value
+                  )}
+                </dd>
               </div>
             ))}
-          </motion.div>
+          </dl>
         </div>
-        <motion.div
-          initial={{ x: 200, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          className="flex justify-center items-center md:h-[468px]"
-        >
-          <Image
-            alt={pageInfo.firstName}
-            src={urlFor(pageInfo.myPicture).url()}
-            width={500}
-            height={500}
-            className="w-[240px] h-[240px] rounded-full lg:h-full lg:w-full lg:rounded-lg"
-          />
-        </motion.div>
+
+        <div>
+          <h3 className="font-display mb-4 text-xl tracking-wide">Tech Stack</h3>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {skills.map((skill) => (
+              <li key={skill._id} className="group rounded-xl border border-line p-3 transition hover:border-muted hover:bg-surface-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative size-7 shrink-0 overflow-hidden rounded-full bg-white">
+                    <Image src={urlFor(skill.image).width(64).height(64).url()} alt="" fill sizes="28px" />
+                  </span>
+                  <span className="font-display truncate text-sm tracking-wide">{skill.title}</span>
+                </div>
+                <div aria-hidden className="mt-3 h-1 overflow-hidden rounded-full bg-line">
+                  <div className="h-full rounded-full bg-fg" style={{ width: `${skill.level}%` }} />
+                </div>
+                <p className="mt-1.5 text-right text-[11px] text-muted">
+                  <span className="sr-only">{skill.title} proficiency: </span>
+                  {skill.level}%
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
+
+      <h3 className="mt-14 mb-4 text-sm font-semibold">Some numbers about me</h3>
+      <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {stats.map((s) => (
+          <li key={s.label} className="rounded-xl border border-line p-4">
+            <p className="font-display text-3xl font-medium">{s.value}</p>
+            <p className="mt-1 text-sm text-muted">{s.label}</p>
+          </li>
+        ))}
+      </ul>
+
+      {skills.length > 0 && <SkillMarquee skills={skills} />}
+    </Section>
+  );
+}
+
+function SkillMarquee({ skills }: { skills: Skill[] }) {
+  return (
+    <div
+      aria-hidden
+      className="relative -mx-5 mt-14 -mb-10 overflow-hidden border-t border-line py-4 sm:-mx-10 md:-mx-14 md:-mb-14 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]"
+    >
+      <ul className="flex w-max animate-marquee">
+        {["a", "b"].flatMap((copy) =>
+          skills.map((skill) => (
+            <li key={`${copy}-${skill._id}`} className="flex items-center gap-2 border-r border-line px-6">
+              <span className="relative size-6 overflow-hidden rounded-full bg-white">
+                <Image src={urlFor(skill.image).width(48).height(48).url()} alt="" fill sizes="24px" />
+              </span>
+              <span className="font-display text-sm tracking-wide text-muted">{skill.title}</span>
+            </li>
+          )),
+        )}
+      </ul>
     </div>
   );
-};
-
-export default About;
+}
