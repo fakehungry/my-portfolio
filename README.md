@@ -1,8 +1,6 @@
 # [My Portfolio](https://www.chaikitr.com/)
 
-This is a first project of my web developer journey. It taught me a lot when I have to do real work. This project shows who am I, what project I complete, what skill I have, where I work before, my contact, and link to my blog. I use Next, Tailwind, Framer, and Sanity to build the project.
-
-![sample](./public/assets/sample.webp)
+This was the first project of my web developer journey, and it taught me a lot about doing real work. The site shows who I am, the projects I've completed, the skills I have, where I've worked, how to contact me, and a link to my blog. It's built with Next.js, Tailwind CSS, Motion, and Sanity.
 
 ## Features
 
@@ -19,6 +17,8 @@ This is a first project of my web developer journey. It taught me a lot when I h
 - Sanity (studio in `backend-sanity/`)
 
 ## Development
+
+Requires Node.js 20.9 or later.
 
 ```bash
 npm install
