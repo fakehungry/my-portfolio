@@ -102,7 +102,7 @@ export default function Contact({ pageInfo, socials }: { pageInfo: PageInfo; soc
 
         <div className="relative mt-10 flex flex-col-reverse items-center justify-between gap-5 border-t border-line pt-6 sm:flex-row">
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} {name}
+            &copy; 2022–{new Date().getFullYear()} {name}
           </p>
           <div className="flex items-center gap-2">
             {socials.map((s) => (
