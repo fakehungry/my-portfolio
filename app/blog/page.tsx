@@ -10,10 +10,7 @@ export default function BlogPage() {
       <p className="font-display text-muted">.../blog ...</p>
       <h1 className="font-display text-5xl font-semibold uppercase tracking-wide sm:text-7xl">Coming soon</h1>
       <p className="max-w-md text-muted">I&apos;m writing the first posts. Check back later.</p>
-      <Link
-        href="/"
-        className="rounded-full border border-line px-5 py-2 text-sm transition hover:bg-invert-bg hover:text-invert-fg"
-      >
+      <Link href="/" className="rounded-full border border-line px-5 py-2 text-sm transition hover:bg-invert-bg hover:text-invert-fg">
         Back home
       </Link>
     </main>

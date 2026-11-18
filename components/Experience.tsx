@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { formatDuration, formatMonth, monthsBetween } from "@/lib/format";
 import { urlFor } from "@/lib/sanity";
 import type { Experience as ExperienceItem } from "@/lib/types";
+import Image from "next/image";
 import Section, { Title } from "./Section";
 
 export default function Experience({ experiences }: { experiences: ExperienceItem[] }) {

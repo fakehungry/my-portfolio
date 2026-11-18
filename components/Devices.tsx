@@ -1,6 +1,6 @@
+import { urlFor } from "@/lib/sanity";
 import type { SanityImageSource } from "@sanity/image-url";
 import Image from "next/image";
-import { urlFor } from "@/lib/sanity";
 
 type Props = {
   image: SanityImageSource;
@@ -36,9 +36,7 @@ export default function Devices({ image, firstName, lastName, role }: Props) {
 
             {/* Mini nav */}
             <div className="absolute inset-x-[5%] top-[5%] flex items-center justify-between text-[2.3cqw]">
-              <span className="font-display rounded-[0.6cqw] border border-white/60 px-[1.2cqw] py-[0.3cqw] tracking-widest">
-                {initials}
-              </span>
+              <span className="font-display rounded-[0.6cqw] border border-white/60 px-[1.2cqw] py-[0.3cqw] tracking-widest">{initials}</span>
               <span className="flex gap-[3cqw] text-white/70">
                 <span className="text-white">Home</span>
                 <span>About</span>
@@ -50,14 +48,10 @@ export default function Devices({ image, firstName, lastName, role }: Props) {
             {/* Mini hero */}
             <div className="absolute top-1/2 right-[6%] max-w-[50%] -translate-y-[40%] text-right">
               <p className="text-[2.4cqw] tracking-[0.3em] text-white/70 uppercase">Hello, I&apos;m</p>
-              <p className="font-display text-[9cqw] leading-none font-semibold tracking-[0.08em] uppercase">
-                {firstName}
-              </p>
+              <p className="font-display text-[9cqw] leading-none font-semibold tracking-[0.08em] uppercase">{firstName}</p>
               <p className="font-display text-[3.4cqw] tracking-[0.35em] text-white/80 uppercase">{lastName}</p>
               <p className="mt-[2cqw] text-[2.4cqw] text-white/70">{role}</p>
-              <span className="mt-[3cqw] inline-block rounded-full bg-white px-[3cqw] py-[1cqw] text-[2.2cqw] font-semibold text-black">
-                View portfolio
-              </span>
+              <span className="mt-[3cqw] inline-block rounded-full bg-white px-[3cqw] py-[1cqw] text-[2.2cqw] font-semibold text-black">View portfolio</span>
             </div>
           </div>
         </div>
@@ -79,13 +73,7 @@ export default function Devices({ image, firstName, lastName, role }: Props) {
           {/* Front: black glass with a thin polished frame line around it */}
           <div className="relative rounded-[18%/9%] bg-black p-[5%] shadow-[inset_0_0_0_1.5px_#5b5b61,inset_0_0_0_3px_#0b0b0c,inset_0_0_0_4px_#2c2c30]">
             <div className="@container relative aspect-[9/19.5] overflow-hidden rounded-[14%/6.5%] bg-black text-white">
-              <Image
-                src={urlFor(image).width(450).height(975).url()}
-                alt=""
-                fill
-                sizes="(min-width: 768px) 9rem, 26vw"
-                className="toned object-cover"
-              />
+              <Image src={urlFor(image).width(450).height(975).url()} alt="" fill sizes="(min-width: 768px) 9rem, 26vw" className="toned object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30" />
 
               {/* Status bar + notch */}
@@ -104,13 +92,9 @@ export default function Devices({ image, firstName, lastName, role }: Props) {
 
               {/* Mini profile */}
               <div className="absolute inset-x-[9%] bottom-[7%]">
-                <p className="font-display text-[15cqw] leading-none font-semibold tracking-[0.06em] uppercase">
-                  {firstName}
-                </p>
+                <p className="font-display text-[15cqw] leading-none font-semibold tracking-[0.06em] uppercase">{firstName}</p>
                 <p className="mt-[2cqw] text-[6.5cqw] text-white/75">{role}</p>
-                <span className="mt-[5cqw] block rounded-full bg-white py-[3cqw] text-center text-[6.5cqw] font-semibold text-black">
-                  Contact me
-                </span>
+                <span className="mt-[5cqw] block rounded-full bg-white py-[3cqw] text-center text-[6.5cqw] font-semibold text-black">Contact me</span>
                 <span className="mx-auto mt-[6cqw] block h-[1.6cqw] w-[38%] rounded-full bg-white/70" />
               </div>
             </div>

@@ -19,12 +19,7 @@ const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light")docu
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      suppressHydrationWarning
-      className={`${nunito.variable} ${oswald.variable}`}
-    >
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${nunito.variable} ${oswald.variable}`}>
       <head>
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static inline script defined in this file */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

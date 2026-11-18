@@ -19,11 +19,7 @@ export function formatDuration(months: number) {
 
 export type Stat = { value: string; label: string };
 
-export function getStats(
-  experiences: { company: string; dateStarted: string }[],
-  projects: unknown[],
-  skills: unknown[],
-) {
+export function getStats(experiences: { company: string; dateStarted: string }[], projects: unknown[], skills: unknown[]) {
   const earliest = experiences.map((e) => e.dateStarted).sort()[0];
   const years = earliest ? Math.floor(monthsBetween(earliest) / 12) : 0;
   const companies = new Set(experiences.map((e) => e.company)).size;
